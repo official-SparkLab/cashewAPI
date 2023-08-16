@@ -32,8 +32,8 @@ Route::post('/Login',[Login::class,'Login']);
 
 //DailyBook API
 Route::post('/dailyBook',[DailyBookController::class,'store']);
-Route::post('/getDailyBook',[DailyBookController::class,'index']);
-Route::post('/getDailyBook/{dailyBook}',[DailyBookController::class,'show']);
-Route::post('/deleteDailyBook/{dailyBook}',[DailyBookController::class,'destroy']);
+Route::GET('/getDailyBook',[DailyBookController::class,'index']);
+Route::GET('/getDailyBook/{dailyBook}',[DailyBookController::class,'show']);
+Route::DELETE('/deleteDailyBook/{dailyBook}',[DailyBookController::class,'destroy']);
 
 

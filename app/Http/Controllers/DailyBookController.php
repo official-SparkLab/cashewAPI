@@ -55,7 +55,7 @@ class DailyBookController extends Controller
         return response()->json([
             'message'=>"Data Fetched successfully",
             'status'=>true,
-            'data'=>dailyBook
+            'data'=>$dailyBook
         ]);
     }
 
