@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DailyBook;
+use App\Models\cityMaster;
 use Illuminate\Http\Request;
 
-class DailyBookController extends Controller
+class CityMasterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class DailyBookController extends Controller
     public function index()
     {
         return response()->json([
-            'message'=>"Data Fetched Successfully",
+            'message'=>"Records Fetched Successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>cityMaster::get()
         ]);
     }
 
@@ -24,13 +24,10 @@ class DailyBookController extends Controller
      */
     public function store(Request $request)
     {
-        $save=new DailyBook;
-        $save->entryName=$request->entryName;
-        $save->date=$request->date;
-        $save->debit=$request->debit;
-        $save->credit=$request->credit;
-        $save->paidBy=$request->paidBy;
-        $save->note=$request->note;
+        $save=new cityMaster;
+        $save->stateName=$request->stateName;
+        $save->cityName=$request->cityName;
+        $save->description=$request->description;
         $save->registerNo=$request->registerNo;
         $save->companyID=$request->companyID;
         $save->userID=$request->userID;
@@ -40,7 +37,7 @@ class DailyBookController extends Controller
         return response()->json([
             'message'=>"Records Saved Successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>cityMaster::get()
         ]);
 
 
@@ -50,19 +47,19 @@ class DailyBookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DailyBook $dailyBook)
+    public function show(cityMaster $cityMaster)
     {
         return response()->json([
-            'message'=>"Data Fetched successfully",
+            'message'=>"Records Fetched Successfully",
             'status'=>true,
-            'data'=>$dailyBook
+            'data'=>cityMaster::get()
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DailyBook $dailyBook)
+    public function update(Request $request, cityMaster $cityMaster)
     {
         //
     }
@@ -70,14 +67,16 @@ class DailyBookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DailyBook $dailyBook)
+    public function destroy(cityMaster $cityMaster)
     {
-        $dailyBook->delete();
-
-        return response()->json([
-            'message'=>"Record deleted successfully",
-            'status'=>true,
-            'data'=>DailyBook::get()
-        ]);
+        {
+            $cityMaster->delete();
+    
+            return response()->json([
+                'message'=>"Record deleted successfully",
+                'status'=>true,
+                'data'=>cityMaster::get()
+            ]);
+        }
     }
 }

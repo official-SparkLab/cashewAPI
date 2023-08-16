@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DailyBook;
+use App\Models\expenseEntry;
 use Illuminate\Http\Request;
 
-class DailyBookController extends Controller
+class ExpenseEntryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class DailyBookController extends Controller
     public function index()
     {
         return response()->json([
-            'message'=>"Data Fetched Successfully",
+            'message'=>"Records Fetched Successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>expenseEntry::get()
         ]);
     }
 
@@ -24,13 +24,14 @@ class DailyBookController extends Controller
      */
     public function store(Request $request)
     {
-        $save=new DailyBook;
-        $save->entryName=$request->entryName;
+        $save=new expenseEntry;
+        $save->expenseName=$request->expenseName;
+        $save->expenseDetails=$request->expenseDetails;
         $save->date=$request->date;
-        $save->debit=$request->debit;
-        $save->credit=$request->credit;
-        $save->paidBy=$request->paidBy;
-        $save->note=$request->note;
+        $save->mrp=$request->mrp;
+        $save->gstNo=$request->gstNo;
+        $save->totalAmount=$request->totalAmount;
+        $save->paidStatus=$request->paidStatus;
         $save->registerNo=$request->registerNo;
         $save->companyID=$request->companyID;
         $save->userID=$request->userID;
@@ -40,7 +41,7 @@ class DailyBookController extends Controller
         return response()->json([
             'message'=>"Records Saved Successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>expenseEntry::get()
         ]);
 
 
@@ -50,19 +51,19 @@ class DailyBookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DailyBook $dailyBook)
+    public function show(expenseEntry $expenseEntry)
     {
         return response()->json([
-            'message'=>"Data Fetched successfully",
+            'message'=>"Records Fetched Successfully",
             'status'=>true,
-            'data'=>$dailyBook
+            'data'=>expenseEntry::get()
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DailyBook $dailyBook)
+    public function update(Request $request, expenseEntry $expenseEntry)
     {
         //
     }
@@ -70,14 +71,14 @@ class DailyBookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DailyBook $dailyBook)
+    public function destroy(expenseEntry $expenseEntry)
     {
-        $dailyBook->delete();
+        $expenseEntry->delete();
 
         return response()->json([
             'message'=>"Record deleted successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>expenseEntry::get()
         ]);
     }
 }
