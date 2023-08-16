@@ -35,6 +35,8 @@ class DailyBookController extends Controller
         $save->note=$request->note;
         $save->registerNo=$request->registerNo;
         $save->companyID=$request->companyID;
+        $save->userID=$request->userID;
+
         $save->save();
 
         return response()->json([

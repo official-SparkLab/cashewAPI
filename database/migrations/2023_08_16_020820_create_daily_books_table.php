@@ -21,6 +21,7 @@ return new class extends Migration
             $table->String("note")->nullable();
             $table->String("registerNo");
             $table->integer("companyID");
+            $table->integer("userID");
 
             $table->timestamps();
         });
