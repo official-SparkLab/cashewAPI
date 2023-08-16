@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyProfileController;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\DailyBookController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +26,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/company',[CompanyProfileController::class,'store']);
 Route::GET('/searchCompany/{companyProfile}/{registerNo}',[CompanyProfileController::class,'show']);
 
+//Login API
 Route::post('/Login',[Login::class,'Login']);
+
+
+//DailyBook API
+Route::post('/dailyBook',[DailyBookController::class,'store']);
+Route::post('/getDailyBook',[DailyBookController::class,'index']);
+Route::post('/getDailyBook/{dailyBook}',[DailyBookController::class,'show']);
+Route::post('/deleteDailyBook/{dailyBook}',[DailyBookController::class,'destroy']);
+
+

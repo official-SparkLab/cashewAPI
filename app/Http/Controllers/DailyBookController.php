@@ -72,6 +72,12 @@ class DailyBookController extends Controller
      */
     public function destroy(DailyBook $dailyBook)
     {
-        
+        $dailyBook->delete();
+
+        return response()->json([
+            'message'=>"Record deleted successfully",
+            'status'=>true,
+            'data'=>DailyBook::get()
+        ]);
     }
 }
