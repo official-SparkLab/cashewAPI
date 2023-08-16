@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DailyBook;
+use App\Models\add_gst;
 use Illuminate\Http\Request;
 
-class DailyBookController extends Controller
+class AddGstController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class DailyBookController extends Controller
         return response()->json([
             'message'=>"Data Fetched Successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>add_gst::get()
         ]);
     }
 
@@ -24,13 +24,13 @@ class DailyBookController extends Controller
      */
     public function store(Request $request)
     {
-        $save=new DailyBook;
-        $save->entryName=$request->entryName;
+        
+
+        $save=new add_gst;
+        $save->cgst=$request->cgst;
+        $save->sgst=$request->sgst;
+        $save->igst=$request->igst;
         $save->date=$request->date;
-        $save->debit=$request->debit;
-        $save->credit=$request->credit;
-        $save->paidBy=$request->paidBy;
-        $save->note=$request->note;
         $save->registerNo=$request->registerNo;
         $save->companyID=$request->companyID;
         $save->userID=$request->userID;
@@ -40,29 +40,27 @@ class DailyBookController extends Controller
         return response()->json([
             'message'=>"Records Saved Successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>add_gst::get()
         ]);
 
 
 
     }
-
     /**
      * Display the specified resource.
      */
-    public function show(DailyBook $dailyBook)
+    public function show(add_gst $add_gst)
     {
         return response()->json([
             'message'=>"Data Fetched successfully",
             'status'=>true,
-            'data'=>$dailyBook
+            'data'=>$add_gst
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DailyBook $dailyBook)
+    public function update(Request $request, add_gst $add_gst)
     {
         //
     }
@@ -70,14 +68,14 @@ class DailyBookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DailyBook $dailyBook)
+    public function destroy(add_gst $add_gst)
     {
-        $dailyBook->delete();
+        $add_gst->delete();
 
         return response()->json([
             'message'=>"Record deleted successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>add_gst::get()
         ]);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DailyBook;
+use App\Models\stateMaster;
 use Illuminate\Http\Request;
 
-class DailyBookController extends Controller
+class StateMasterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class DailyBookController extends Controller
         return response()->json([
             'message'=>"Data Fetched Successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>stateMaster::get()
         ]);
     }
 
@@ -24,13 +24,9 @@ class DailyBookController extends Controller
      */
     public function store(Request $request)
     {
-        $save=new DailyBook;
-        $save->entryName=$request->entryName;
-        $save->date=$request->date;
-        $save->debit=$request->debit;
-        $save->credit=$request->credit;
-        $save->paidBy=$request->paidBy;
-        $save->note=$request->note;
+        $save=new stateMaster;
+        $save->stateName=$request->stateName;
+        $save->description=$request->description;
         $save->registerNo=$request->registerNo;
         $save->companyID=$request->companyID;
         $save->userID=$request->userID;
@@ -40,7 +36,7 @@ class DailyBookController extends Controller
         return response()->json([
             'message'=>"Records Saved Successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>stateMaster::get()
         ]);
 
 
@@ -50,19 +46,19 @@ class DailyBookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(DailyBook $dailyBook)
+    public function show(stateMaster $stateMaster)
     {
         return response()->json([
-            'message'=>"Data Fetched successfully",
+            'message'=>"Data Fetched Successfully",
             'status'=>true,
-            'data'=>$dailyBook
+            'data'=>stateMaster::get()
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DailyBook $dailyBook)
+    public function update(Request $request, stateMaster $stateMaster)
     {
         //
     }
@@ -70,14 +66,14 @@ class DailyBookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DailyBook $dailyBook)
+    public function destroy(stateMaster $stateMaster)
     {
-        $dailyBook->delete();
+        $stateMaster->delete();
 
         return response()->json([
             'message'=>"Record deleted successfully",
             'status'=>true,
-            'data'=>DailyBook::get()
+            'data'=>stateMaster::get()
         ]);
     }
 }
