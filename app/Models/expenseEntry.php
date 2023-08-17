@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class expenseEntry extends Model
 {
-    use HasFactory;
+    protected $table = 'tbl_expenses';
 }

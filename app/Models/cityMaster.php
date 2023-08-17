@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class cityMaster extends Model
 {
-    use HasFactory;
+    protected $table = 'tbl_city_master';
+
 }
