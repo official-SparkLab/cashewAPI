@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class stateMaster extends Model
 {
-    use HasFactory;
+    protected $table = 'tbl_state_master';
+
 }
