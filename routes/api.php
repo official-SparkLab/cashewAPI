@@ -59,16 +59,16 @@ Route::DELETE('/deleteGst/{add_gst}',[AddGstController::class,'destroy']);
 //Grade Details API
 Route::post('/gradeDetails',[GradeDetailsController::class,'store']);
 Route::GET('/getGradeDetails',[GradeDetailsController::class,'index']);
-Route::GET('/getGradeDetails/{GradeDetails}',[GradeDetailsController::class,'show']);
-Route::DELETE('/deleteGradeDetails/{GradeDetails}',[GradeDetailsController::class,'destroy']);
+Route::GET('/getGradeDetails/{gradeDetails}',[GradeDetailsController::class,'show']);
+Route::DELETE('/deleteGradeDetails/{gradeDetails}',[GradeDetailsController::class,'destroy']);
 
 
 
 //Goods Rate API
 Route::post('/goodsRate',[GoodsRateController::class,'store']);
 Route::GET('/getGoodsRate',[GoodsRateController::class,'index']);
-Route::GET('/getGoodsRate/{GoodsRate}',[GoodsRateController::class,'show']);
-Route::DELETE('/deleteGoodsRate/{GoodsRate}',[GoodsRateController::class,'destroy']);
+Route::GET('/getGoodsRate/{goodsRate}',[GoodsRateController::class,'show']);
+Route::DELETE('/deleteGoodsRate/{goodsRate}',[GoodsRateController::class,'destroy']);
 
 
 
