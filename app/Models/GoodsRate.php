@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class GoodsRate extends Model
 {
-    use HasFactory;
+    protected $table = 'tbl_goods_rate';
 }
