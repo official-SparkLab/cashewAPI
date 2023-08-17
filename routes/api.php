@@ -11,8 +11,8 @@ use App\Http\Controllers\GoodsRateController;
 use App\Http\Controllers\ExpenseEntryController;
 use App\Http\Controllers\CityMasterController;
 use App\Http\Controllers\StateMasterController;
-
-
+use App\Http\Controllers\AddSupplierController;
+use App\Http\Controllers\AddCustomerController;
 
 
 
@@ -94,3 +94,19 @@ Route::GET('/getStateList',[StateMasterController::class,'index']);
 Route::GET('/getStateList/{stateMaster}',[StateMasterController::class,'show']);
 Route::DELETE('/deleteState/{stateMaster}',[StateMasterController::class,'destroy']);
 
+
+
+//Supplier API
+Route::post('/addSupplier',[AddSupplierController::class,'store']);
+Route::GET('/getSupplierList',[AddSupplierController::class,'index']);
+Route::GET('/getSupplierList/{addSupplier}',[AddSupplierController::class,'show']);
+Route::DELETE('/deleteSupplier/{addSupplier}',[AddSupplierController::class,'destroy']);
+
+
+
+
+//Customer API
+Route::post('/addCustomer',[AddCustomerController::class,'store']);
+Route::GET('/getCustomerList',[AddCustomerController::class,'index']);
+Route::GET('/getCustomerList/{addCustomer}',[AddCustomerController::class,'show']);
+Route::DELETE('/deleteCustomer/{addCustomer}',[AddCustomerController::class,'destroy']);
