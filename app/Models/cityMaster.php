@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class cityMaster extends Model
 {
-    protected $table = 'tbl_city_master';
+    protected $table ='tbl_city_master';
 
 }
