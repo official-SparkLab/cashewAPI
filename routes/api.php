@@ -15,11 +15,7 @@ use App\Http\Controllers\AddSupplierController;
 use App\Http\Controllers\AddCustomerController;
 use App\Http\Controllers\AddEmployeeController;
 use App\Http\Controllers\EmployeePaymentController;
-
-
-
-
-
+use App\Http\Controllers\EmployeeAdvancePaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,3 +127,10 @@ Route::post('/addEmployeePayment',[EmployeePaymentController::class,'store']);
 Route::GET('/getEmployeePaymentList',[EmployeePaymentController::class,'index']);
 Route::GET('/getEmployeePaymentList/{employeePayment}',[EmployeePaymentController::class,'show']);
 Route::DELETE('/deleteEmployeePayment/{employeePayment}',[EmployeePaymentController::class,'destroy']);
+
+
+//Employee Advance Payment API
+Route::post('/addEmployeeAdvancePayment',[EmployeeAdvancePaymentController::class,'store']);
+Route::GET('/getAdvancePaymentList',[EmployeeAdvancePaymentController::class,'index']);
+Route::GET('/getAdvancePaymentList/{employeeAdvancePayment}',[EmployeeAdvancePaymentController::class,'show']);
+Route::DELETE('/deleteEmployeeAdvancePayment/{employeeAdvancePayment}',[EmployeeAdvancePaymentController::class,'destroy']);
