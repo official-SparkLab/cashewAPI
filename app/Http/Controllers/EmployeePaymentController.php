@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cityMaster;
+use App\Models\employeePayment;
 use Illuminate\Http\Request;
 
-class CityMasterController extends Controller
+class EmployeePaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,18 +15,21 @@ class CityMasterController extends Controller
         return response()->json([
             'message'=>"Records Fetched Successfully",
             'status'=>true,
-            'data'=>cityMaster::get()
+            'data'=>employeePayment::get()
         ]);
     }
 
     /**
-     * Store a newly created resource in storage.   
+     * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $save=new cityMaster;
-        $save->stateName=$request->stateName;
-        $save->cityName=$request->cityName;
+        $save=new employeePayment;
+        $save->employeeName=$request->employeeName;
+        $save->date=$request->date;
+        $save->salaryType=$request->salaryType;
+        $save->salaryAmount=$request->salaryAmount;
+        $save->deduction=$request->deduction;
         $save->description=$request->description;
         $save->registerNo=$request->registerNo;
         $save->companyID=$request->companyID;
@@ -37,7 +40,7 @@ class CityMasterController extends Controller
         return response()->json([
             'message'=>"Records Saved Successfully",
             'status'=>true,
-            'data'=>cityMaster::get()
+            'data'=>employeePayment::get()
         ]);
 
 
@@ -47,19 +50,19 @@ class CityMasterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(cityMaster $cityMaster)
+    public function show(employeePayment $employeePayment)
     {
         return response()->json([
             'message'=>"Records Fetched Successfully",
             'status'=>true,
-            'data'=>cityMaster::get()
+            'data'=>employeePayment::get()
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, cityMaster $cityMaster)
+    public function update(Request $request, employeePayment $employeePayment)
     {
         //
     }
@@ -67,16 +70,14 @@ class CityMasterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cityMaster $cityMaster)
+    public function destroy(employeePayment $employeePayment)
     {
-        {
-            $cityMaster->delete();
+        $employeePayment->delete();
     
-            return response()->json([
-                'message'=>"Record deleted successfully",
-                'status'=>true,
-                'data'=>cityMaster::get()
-            ]);
-        }
+        return response()->json([
+            'message'=>"Record deleted successfully",
+            'status'=>true,
+            'data'=>employeePayment::get()
+        ]);
     }
 }

@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class cityMaster extends Model
+class addEmployee extends Model
 {
-    protected $table ='tbl_city_master';
+    protected $table ='tbl_add_employee';
 
 }
