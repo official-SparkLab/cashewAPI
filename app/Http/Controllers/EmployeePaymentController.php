@@ -34,7 +34,7 @@ class EmployeePaymentController extends Controller
         $save->registerNo=$request->registerNo;
         $save->companyID=$request->companyID;
         $save->userID=$request->userID;
-
+ 
         $save->save();
 
         return response()->json([
