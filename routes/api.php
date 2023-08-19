@@ -13,6 +13,10 @@ use App\Http\Controllers\CityMasterController;
 use App\Http\Controllers\StateMasterController;
 use App\Http\Controllers\AddSupplierController;
 use App\Http\Controllers\AddCustomerController;
+use App\Http\Controllers\AddEmployeeController;
+use App\Http\Controllers\EmployeePaymentController;
+
+
 
 
 
@@ -110,3 +114,20 @@ Route::post('/addCustomer',[AddCustomerController::class,'store']);
 Route::GET('/getCustomerList',[AddCustomerController::class,'index']);
 Route::GET('/getCustomerList/{addCustomer}',[AddCustomerController::class,'show']);
 Route::DELETE('/deleteCustomer/{addCustomer}',[AddCustomerController::class,'destroy']);
+
+
+
+
+//Employee Details API
+Route::post('/addEmployee',[AddEmployeeController::class,'store']);
+Route::GET('/getEmployeeList',[AddEmployeeController::class,'index']);
+Route::GET('/getEmployeeList/{addEmployee}',[AddEmployeeController::class,'show']);
+Route::DELETE('/deleteEmployee/{addEmployee}',[AddEmployeeController::class,'destroy']);
+
+
+
+//Employee Payment API
+Route::post('/addEmployeePayment',[EmployeePaymentController::class,'store']);
+Route::GET('/getEmployeePaymentList',[EmployeePaymentController::class,'index']);
+Route::GET('/getEmployeePaymentList/{employeePayment}',[EmployeePaymentController::class,'show']);
+Route::DELETE('/deleteEmployeePayment/{employeePayment}',[EmployeePaymentController::class,'destroy']);
