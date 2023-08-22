@@ -16,6 +16,9 @@ use App\Http\Controllers\AddCustomerController;
 use App\Http\Controllers\AddEmployeeController;
 use App\Http\Controllers\EmployeePaymentController;
 use App\Http\Controllers\EmployeeAdvancePaymentController;
+use App\Http\Controllers\PurchasePayableController;
+use App\Http\Controllers\SalePayableController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -144,5 +147,14 @@ Route::DELETE('/deleteEmployeeAdvancePayment/{employeeAdvancePayment}',[Employee
 Route::post('/purchasePayable',[PurchasePayableController::class,'store']);
 Route::GET('/getPurchasePayableList',[PurchasePayableController::class,'index']);
 Route::GET('/getPurchasePayableList/{purchasePayable}',[PurchasePayableController::class,'show']);
-Route::DELETE('/deletegetPurchasePayable/{purchasePayable}',[PurchasePayableController::class,'destroy']);
+Route::DELETE('/deletePurchasePayable/{purchasePayable}',[PurchasePayableController::class,'destroy']);
 Route::put('/updatePurchasePayable/{id}',[PurchasePayableController::class,'update']);
+
+
+
+//Sales Payable API
+Route::post('/salePayable',[SalePayableController::class,'store']);
+Route::GET('/getSalePayableList',[SalePayableController::class,'index']);
+Route::GET('/getSalePayableList/{salePayable}',[SalePayableController::class,'show']);
+Route::DELETE('/deleteSalePayable/{salePayable}',[SalePayableController::class,'destroy']);
+Route::put('/updateSalePayable/{id}',[SalePayableController::class,'update']);
