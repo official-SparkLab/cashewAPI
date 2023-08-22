@@ -62,9 +62,37 @@ class EmployeePaymentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, employeePayment $employeePayment)
+    public function update(Request $request, $id)
     {
-        //
+       
+            $save=employeePayment::where("id",$id)->first();
+            $save->employeeName = $request->input('employeeName');
+
+            $save->date = $request->input('date');
+
+            $save->salaryType = $request->input('salaryType');
+
+            $save->salaryAmount = $request->input('salaryAmount');
+
+            $save->deduction = $request->input('deduction');
+
+            $save->description = $request->input('description');
+
+            $save->registerNo = $request->input('registerNo');
+
+            $save->companyID = $request->input('companyID');
+
+            $save->userID = $request->input('userID');
+
+            $save->save();
+    
+            return response()->json([
+                'message' => 'Entry Updated Successfully',
+                'status' => 'success',
+                'data' => employeePayment::get()
+    
+            ]);
+      
     }
 
     /**

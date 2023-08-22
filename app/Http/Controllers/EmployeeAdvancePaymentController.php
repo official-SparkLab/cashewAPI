@@ -59,11 +59,34 @@ class EmployeeAdvancePaymentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, employeeAdvancePayment $employeeAdvancePayment)
+    public function update(Request $request, $id)
     {
-        //
-    }
+       
+            $save=employeeAdvancePayment::where("id",$id)->first();
+            $save->employeeName = $request->input('employeeName');
 
+            $save->date = $request->input('date');
+
+            $save->advanceAmount = $request->input('advanceAmount');
+
+            $save->paymentType = $request->input('paymentType');
+
+            $save->registerNo = $request->input('registerNo');
+
+            $save->companyID = $request->input('companyID');
+
+            $save->userID = $request->input('userID');
+
+            $save->save();
+    
+            return response()->json([
+                'message' => 'Entry Updated Successfully',
+                'status' => 'success',
+                'data' => employeeAdvancePayment::get()
+    
+            ]);
+      
+    }
     /**
      * Remove the specified resource from storage.
      */

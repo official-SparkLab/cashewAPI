@@ -59,9 +59,31 @@ class CityMasterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, cityMaster $cityMaster)
+    public function update(Request $request, $id)
     {
-        //
+       
+            $save=cityMaster::where("id",$id)->first();
+            $save->stateName = $request->input('stateName');
+
+            $save->cityName = $request->input('cityName');
+
+            $save->description = $request->input('description');
+
+            $save->registerNo = $request->input('registerNo');
+
+            $save->companyID = $request->input('companyID');
+
+            $save->userID = $request->input('userID');
+
+            $save->save();
+    
+            return response()->json([
+                'message' => 'City Updated Successfully',
+                'status' => 'success',
+                'data' => cityMaster::get()
+    
+            ]);
+      
     }
 
     /**

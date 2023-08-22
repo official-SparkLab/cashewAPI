@@ -58,9 +58,29 @@ class StateMasterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, stateMaster $stateMaster)
+    public function update(Request $request, $id)
     {
-        //
+       
+            $save=stateMaster::where("id",$id)->first();
+            $save->stateName = $request->input('stateName');
+
+            $save->description = $request->input('description');
+
+            $save->registerNo = $request->input('registerNo');
+
+            $save->companyID = $request->input('companyID');
+
+            $save->userID = $request->input('userID');
+
+            $save->save();
+    
+            return response()->json([
+                'message' => 'State Updated Successfully',
+                'status' => 'success',
+                'data' => stateMaster::get()
+    
+            ]);
+      
     }
 
     /**
