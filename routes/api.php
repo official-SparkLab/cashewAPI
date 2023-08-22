@@ -45,6 +45,7 @@ Route::post('/dailyBook',[DailyBookController::class,'store']);
 Route::GET('/getDailyBook',[DailyBookController::class,'index']);
 Route::GET('/getDailyBook/{dailyBook}',[DailyBookController::class,'show']);
 Route::DELETE('/deleteDailyBook/{dailyBook}',[DailyBookController::class,'destroy']);
+Route::put('/updateDailyBook/{id}',[DailyBookController::class,'update']);
 
 
 
@@ -101,7 +102,7 @@ Route::post('/addSupplier',[AddSupplierController::class,'store']);
 Route::GET('/getSupplierList',[AddSupplierController::class,'index']);
 Route::GET('/getSupplierList/{addSupplier}',[AddSupplierController::class,'show']);
 Route::DELETE('/deleteSupplier/{addSupplier}',[AddSupplierController::class,'destroy']);
-
+Route::put('/updateSupplier/{id}',[AddSupplierController::class,'update']);
 
 
 
@@ -110,6 +111,7 @@ Route::post('/addCustomer',[AddCustomerController::class,'store']);
 Route::GET('/getCustomerList',[AddCustomerController::class,'index']);
 Route::GET('/getCustomerList/{addCustomer}',[AddCustomerController::class,'show']);
 Route::DELETE('/deleteCustomer/{addCustomer}',[AddCustomerController::class,'destroy']);
+Route::put('/updateCustomer/{id}',[AddCustomerController::class,'update']);
 
 
 
@@ -119,6 +121,7 @@ Route::post('/addEmployee',[AddEmployeeController::class,'store']);
 Route::GET('/getEmployeeList',[AddEmployeeController::class,'index']);
 Route::GET('/getEmployeeList/{addEmployee}',[AddEmployeeController::class,'show']);
 Route::DELETE('/deleteEmployee/{addEmployee}',[AddEmployeeController::class,'destroy']);
+Route::put('/updateEmployee/{id}',[AddEmployeeController::class,'update']);
 
 
 
