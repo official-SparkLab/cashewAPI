@@ -64,9 +64,47 @@ class AddCustomerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, addCustomer $addCustomer)
+    public function update(Request $request, $id)
     {
-        //
+       
+            $save=addCustomer::where("id",$id)->first();
+            $save->customerName = $request->input('customerName');
+
+            $save->address = $request->input('address');
+
+            $save->cityName = $request->input('cityName');
+
+            $save->stateName = $request->input('stateName');
+
+            $save->customerType = $request->input('customerType');
+
+            $save->Contact = $request->input('Contact');
+
+            $save->Email = $request->input('Email');
+
+            $save->bankName = $request->input('bankName');
+
+            $save->Ifsc = $request->input('Ifsc');
+
+            $save->accountNo = $request->input('accountNo');
+
+            $save->gstNo = $request->input('gstNo');
+
+            $save->registerNo = $request->input('registerNo');
+
+            $save->companyID = $request->input('companyID');
+
+            $save->userID = $request->input('userID');
+
+            $save->save();
+    
+            return response()->json([
+                'message' => 'Customer Updated Successfully',
+                'status' => 'success',
+                'data' => addCustomer::get()
+    
+            ]);
+      
     }
 
     /**

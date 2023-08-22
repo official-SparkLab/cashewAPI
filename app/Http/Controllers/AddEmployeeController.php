@@ -67,9 +67,48 @@ class AddEmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, addEmployee $addEmployee)
+    public function update(Request $request, $id)
     {
-        //
+       
+            $save=addEmployee::where("id",$id)->first();
+
+            $save->employeeName = $request->input('employeeName');
+
+            $save->dob = $request->input('dob');
+
+            $save->address = $request->input('address');
+
+            $save->contact = $request->input('contact');
+
+            $save->joinDate = $request->input('joinDate');
+
+            $save->employeeType = $request->input('employeeType');
+
+            $save->designation = $request->input('designation');
+
+            $save->salary = $request->input('salary');
+
+            $save->bankName = $request->input('bankName');
+
+            $save->ifsc = $request->input('ifsc');
+
+            $save->accountNo = $request->input('accountNo');
+
+            $save->registerNo = $request->input('registerNo');
+
+            $save->companyID = $request->input('companyID');
+
+            $save->userID = $request->input('userID');
+
+            $save->save();
+    
+            return response()->json([
+                'message' => 'Employee Updated Successfully',
+                'status' => 'success',
+                'data' => addEmployee::get()
+    
+            ]);
+      
     }
 
     /**
