@@ -78,9 +78,9 @@ class AddSupplierController extends Controller
 
             $save->supplierType = $request->input('supplierType');
 
-            $save->Contact = $request->input('Contact');
+            $save->contact = $request->input('contact');
 
-            $save->Email = $request->input('Email');
+            $save->email = $request->input('email');
 
             $save->bankName = $request->input('bankName');
 
