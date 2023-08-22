@@ -57,6 +57,7 @@ Route::post('/addGst',[AddGstController::class,'store']);
 Route::GET('/getGstList',[AddGstController::class,'index']);
 Route::GET('/getSingleGst/{add_gst}',[AddGstController::class,'show']);
 Route::DELETE('/deleteGst/{add_gst}',[AddGstController::class,'destroy']);
+Route::put('/updateGst/{id}',[AddGstController::class,'update']);
 
 
 
@@ -65,6 +66,7 @@ Route::post('/gradeDetails',[GradeDetailsController::class,'store']);
 Route::GET('/getGradeDetails',[GradeDetailsController::class,'index']);
 Route::GET('/getGradeDetails/{gradeDetails}',[GradeDetailsController::class,'show']);
 Route::DELETE('/deleteGradeDetails/{gradeDetails}',[GradeDetailsController::class,'destroy']);
+Route::put('/updateGradeDetails/{id}',[GradeDetailsController::class,'update']);
 
 
 
@@ -73,6 +75,7 @@ Route::post('/goodsRate',[GoodsRateController::class,'store']);
 Route::GET('/getGoodsRate',[GoodsRateController::class,'index']);
 Route::GET('/getGoodsRate/{goodsRate}',[GoodsRateController::class,'show']);
 Route::DELETE('/deleteGoodsRate/{goodsRate}',[GoodsRateController::class,'destroy']);
+Route::put('/updateGoodsRate/{id}',[GoodsRateController::class,'update']);
 
 
 
@@ -81,6 +84,7 @@ Route::post('/expenseEntry',[ExpenseEntryController::class,'store']);
 Route::GET('/getExpenseList',[ExpenseEntryController::class,'index']);
 Route::GET('/getExpenseList/{expenseEntry}',[ExpenseEntryController::class,'show']);
 Route::DELETE('/deleteExpenseEntry/{expenseEntry}',[ExpenseEntryController::class,'destroy']);
+Route::put('/updateExpenseEntry/{id}',[ExpenseEntryController::class,'update']);
 
 
 
@@ -89,6 +93,7 @@ Route::post('/addCity',[CityMasterController::class,'store']);
 Route::GET('/getCityList',[CityMasterController::class,'index']);
 Route::GET('/getCityList/{cityMaster}',[CityMasterController::class,'show']);
 Route::DELETE('/deleteCity/{cityMaster}',[CityMasterController::class,'destroy']);
+Route::put('/updateCity/{id}',[CityMasterController::class,'update']);
 
 
 
@@ -97,6 +102,7 @@ Route::post('/addState',[StateMasterController::class,'store']);
 Route::GET('/getStateList',[StateMasterController::class,'index']);
 Route::GET('/getStateList/{stateMaster}',[StateMasterController::class,'show']);
 Route::DELETE('/deleteState/{stateMaster}',[StateMasterController::class,'destroy']);
+Route::put('/updateState/{id}',[StateMasterController::class,'update']);
 
 
 
@@ -133,6 +139,7 @@ Route::post('/addEmployeePayment',[EmployeePaymentController::class,'store']);
 Route::GET('/getEmployeePaymentList',[EmployeePaymentController::class,'index']);
 Route::GET('/getEmployeePaymentList/{employeePayment}',[EmployeePaymentController::class,'show']);
 Route::DELETE('/deleteEmployeePayment/{employeePayment}',[EmployeePaymentController::class,'destroy']);
+Route::put('/updateEmployeePayment/{id}',[EmployeePaymentController::class,'update']);
 
 
 //Employee Advance Payment API
@@ -140,6 +147,7 @@ Route::post('/addEmployeeAdvancePayment',[EmployeeAdvancePaymentController::clas
 Route::GET('/getAdvancePaymentList',[EmployeeAdvancePaymentController::class,'index']);
 Route::GET('/getAdvancePaymentList/{employeeAdvancePayment}',[EmployeeAdvancePaymentController::class,'show']);
 Route::DELETE('/deleteEmployeeAdvancePayment/{employeeAdvancePayment}',[EmployeeAdvancePaymentController::class,'destroy']);
+Route::put('/updateEmployeeAdvancePayment/{id}',[EmployeeAdvancePaymentController::class,'update']);
 
 
 

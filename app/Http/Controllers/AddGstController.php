@@ -60,11 +60,34 @@ class AddGstController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, add_gst $add_gst)
+    public function update(Request $request, $id)
     {
-        //
-    }
+       
+            $save=add_gst::where("id",$id)->first();
+            $save->cgst = $request->input('cgst');
 
+            $save->sgst = $request->input('sgst');
+
+            $save->igst = $request->input('igst');
+
+            $save->date = $request->input('date');
+
+            $save->registerNo = $request->input('registerNo');
+
+            $save->companyID = $request->input('companyID');
+
+            $save->userID = $request->input('userID');
+
+            $save->save();
+    
+            return response()->json([
+                'message' => 'GST Updated Successfully',
+                'status' => 'success',
+                'data' => add_gst::get()
+    
+            ]);
+      
+    }
     /**
      * Remove the specified resource from storage.
      */

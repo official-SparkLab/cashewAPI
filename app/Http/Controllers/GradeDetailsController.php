@@ -58,9 +58,29 @@ class GradeDetailsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, GradeDetails $gradeDetails)
+    public function update(Request $request, $id)
     {
-        //
+       
+            $save=GradeDetails::where("id",$id)->first();
+            $save->gradeName = $request->input('gradeName');
+
+            $save->description = $request->input('description');
+
+            $save->registerNo = $request->input('registerNo');
+
+            $save->companyID = $request->input('companyID');
+
+            $save->userID = $request->input('userID');
+
+            $save->save();
+    
+            return response()->json([
+                'message' => 'Record Updated Successfully',
+                'status' => 'success',
+                'data' => GradeDetails::get()
+    
+            ]);
+      
     }
 
     /**

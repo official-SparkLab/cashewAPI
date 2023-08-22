@@ -60,9 +60,33 @@ class GoodsRateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, GoodsRate $goodsRate)
+    public function update(Request $request, $id)
     {
-        //
+       
+            $save=GoodsRate::where("id",$id)->first();
+            $save->goodsName = $request->input('goodsName');
+
+            $save->hsn = $request->input('hsn');
+
+            $save->rate = $request->input('rate');
+
+            $save->description = $request->input('description');
+
+            $save->registerNo = $request->input('registerNo');
+
+            $save->companyID = $request->input('companyID');
+
+            $save->userID = $request->input('userID');
+
+            $save->save();
+    
+            return response()->json([
+                'message' => 'Record Updated Successfully',
+                'status' => 'success',
+                'data' => GoodsRate::get()
+    
+            ]);
+      
     }
 
     /**
