@@ -78,13 +78,13 @@ class AddCustomerController extends Controller
 
             $save->customerType = $request->input('customerType');
 
-            $save->Contact = $request->input('Contact');
+            $save->contact = $request->input('contact');
 
-            $save->Email = $request->input('Email');
+            $save->email = $request->input('email');
 
             $save->bankName = $request->input('bankName');
 
-            $save->Ifsc = $request->input('Ifsc');
+            $save->ifsc = $request->input('ifsc');
 
             $save->accountNo = $request->input('accountNo');
 

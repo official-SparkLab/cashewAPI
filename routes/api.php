@@ -137,3 +137,12 @@ Route::post('/addEmployeeAdvancePayment',[EmployeeAdvancePaymentController::clas
 Route::GET('/getAdvancePaymentList',[EmployeeAdvancePaymentController::class,'index']);
 Route::GET('/getAdvancePaymentList/{employeeAdvancePayment}',[EmployeeAdvancePaymentController::class,'show']);
 Route::DELETE('/deleteEmployeeAdvancePayment/{employeeAdvancePayment}',[EmployeeAdvancePaymentController::class,'destroy']);
+
+
+
+//Purchase Payable API
+Route::post('/purchasePayable',[PurchasePayableController::class,'store']);
+Route::GET('/getPurchasePayableList',[PurchasePayableController::class,'index']);
+Route::GET('/getPurchasePayableList/{purchasePayable}',[PurchasePayableController::class,'show']);
+Route::DELETE('/deletegetPurchasePayable/{purchasePayable}',[PurchasePayableController::class,'destroy']);
+Route::put('/updatePurchasePayable/{id}',[PurchasePayableController::class,'update']);
