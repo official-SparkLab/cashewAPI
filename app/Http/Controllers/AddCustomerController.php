@@ -52,8 +52,10 @@ class AddCustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(addCustomer $addCustomer)
+    public function show(addCustomer $id)
     {
+        $save=addCustomer::where("id",$id)->first();
+
         return response()->json([
             'message'=>"Records Fetched Successfully",
             'status'=>true, 

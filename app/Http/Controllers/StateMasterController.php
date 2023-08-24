@@ -39,8 +39,6 @@ class StateMasterController extends Controller
             'data'=>stateMaster::get()
         ]);
 
-
-
     }
 
     /**
