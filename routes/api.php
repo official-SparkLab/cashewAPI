@@ -118,7 +118,7 @@ Route::put('/updateSupplier/{id}',[AddSupplierController::class,'update']);
 //Customer API
 Route::post('/addCustomer',[AddCustomerController::class,'store']);
 Route::GET('/getCustomerList',[AddCustomerController::class,'index']);
-Route::GET('/getCustomerList/{addCustomer}',[AddCustomerController::class,'show']);
+Route::GET('/getCustomerList/{id}',[AddCustomerController::class,'show']);
 Route::DELETE('/deleteCustomer/{addCustomer}',[AddCustomerController::class,'destroy']);
 Route::put('/updateCustomer/{id}',[AddCustomerController::class,'update']);
 
