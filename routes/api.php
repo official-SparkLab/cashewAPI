@@ -169,7 +169,7 @@ Route::DELETE('/deleteSalePayable/{salePayable}',[SalePayableController::class,'
 Route::put('/updateSalePayable/{id}',[SalePayableController::class,'update']);
 
 
-//Sales Payable API
+//Create User API
 Route::post('/createUser',[CreateUserController::class,'store']);
 Route::GET('/getUserList',[CreateUserController::class,'index']);
 Route::GET('/getUserList/{createUser}',[CreateUserController::class,'show']);

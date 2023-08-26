@@ -63,17 +63,12 @@ class CreateUserController extends Controller
     {
        
             $save=createUser::where("id",$id)->first();
+            
             $save->userName = $request->input('userName');
 
             $save->gender = $request->input('gender');
 
             $save->contactNo = $request->input('contactNo');
-
-            $save->email = $request->input('email');
-
-            $save->customerType = $request->input('customerType');
-
-            $save->contact = $request->input('contact');
 
             $save->email = $request->input('email');
 
