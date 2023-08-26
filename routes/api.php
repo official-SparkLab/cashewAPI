@@ -18,6 +18,7 @@ use App\Http\Controllers\EmployeePaymentController;
 use App\Http\Controllers\EmployeeAdvancePaymentController;
 use App\Http\Controllers\PurchasePayableController;
 use App\Http\Controllers\SalePayableController;
+use App\Http\Controllers\CreateUserController;
 
 
 /*
@@ -166,3 +167,11 @@ Route::GET('/getSalePayableList',[SalePayableController::class,'index']);
 Route::GET('/getSalePayableList/{salePayable}',[SalePayableController::class,'show']);
 Route::DELETE('/deleteSalePayable/{salePayable}',[SalePayableController::class,'destroy']);
 Route::put('/updateSalePayable/{id}',[SalePayableController::class,'update']);
+
+
+//Sales Payable API
+Route::post('/createUser',[CreateUserController::class,'store']);
+Route::GET('/getUserList',[CreateUserController::class,'index']);
+Route::GET('/getUserList/{createUser}',[CreateUserController::class,'show']);
+Route::DELETE('/deleteUser/{createUser}',[CreateUserController::class,'destroy']);
+Route::put('/updateUser/{id}',[CreateUserController::class,'update']);
